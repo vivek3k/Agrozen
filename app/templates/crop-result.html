@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0f7fa, #fff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background-color: #00796b;
+            padding: 15px 30px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .card {
+            background-color: white;
+            padding: 40px 60px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .card h1 {
+            color: #004d40;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .card strong {
+            color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">AgroZen</div>
+
+    <div class="container">
+        <div class="card">
+            <h1>Crop Prediction Result</h1>
+            <p>Recommended Crop: <strong>{{ prediction }}</strong></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Weather Section -->
+<section class="weather-section py-5">
+    <div class="container">
+        <h2 class="text-center">Weather Forecast</h2>
+
+        <div class="row justify-content-center">
+            <!-- Current Weather -->
+            <div class="col-md-4">
+                <div class="weather-card p-4 text-center">
+                    <h4>Current Weather</h4>
+                    <img src="https://openweathermap.org/img/wn/{{ weather_data.current.weather[0].icon }}@2x.png" alt="weather icon" />
+                    <p class="temperature">{{ weather_data.current.temp }}°C</p>
+                    <p class="description">{{ weather_data.current.weather[0].description | capitalize }}</p>
+                </div>
+            </div>
+
+            <!-- 7-day Forecast -->
+            <div class="col-md-8">
+                <h4>7-day Forecast</h4>
+                <div class="row">
+                    {% for day in weather_data.daily %}
+                    <div class="col-md-2 mb-3">
+                        <div class="forecast-card p-3 text-center">
+                            <p>{{ day.date | date('l') }}</p>
+                            <img src="https://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png" alt="weather icon" />
+                            <p class="temperature">{{ day.temp.day }}°C</p>
+                            <p>{{ day.weather[0].description | capitalize }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
